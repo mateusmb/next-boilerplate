@@ -6,11 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "yarn test --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "src/**/*": [
-      "yarn lint --fix"
+      "yarn test --bail"
     ]
   },
   "dependencies": {
@@ -19,6 +26,10 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "@types/jest": "^27.0.1",
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.21",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
@@ -30,6 +41,7 @@
     "eslint-plugin-react": "^7.25.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.2",
+    "jest": "^27.2.0",
     "lint-staged": "^11.1.2",
     "prettier": "2.4.0",
     "typescript": "^4.4.3"
